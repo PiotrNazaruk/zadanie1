@@ -7,8 +7,8 @@ const domElements ={
   button: document.querySelector(".counter-button")
 }
 const data={
-  even: [1,3,5],
-  odd: [2,4,6]
+  even: [],
+  odd: []
 }
 
 const drawNumbers = ()=>{
@@ -18,18 +18,25 @@ const drawNumbers = ()=>{
   }
   else{
     data.odd.push(drawNumber)
+  
   }
 }
 const times = (n, callback) => {
+  console.log('click')
   while (n) {
       callback();
       n--;
   }
+  Columns(data)
 }
 
 const buttonHandler=()=>{
   const {button}= domElements;
-  button.addEventListener("click",times(10, drawNumbers))
+  button.addEventListener("click",function(){
+    times(20, drawNumbers)
+  })
+
+
 }
 const init =()=>{
   buttonHandler()
